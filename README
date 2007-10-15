@@ -15,3 +15,7 @@ Description:	A program for experimenting with cell-patterns like those found in 
 ---Requirements---
 
 python, pygame and psycho (optional)
+
+---Exceptions---
+
+The font might not be GPL, but it is "freeware". Delete if problematic.
