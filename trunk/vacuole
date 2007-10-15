@@ -56,7 +56,10 @@ class Cells:
         # use the active pattern
         self.putpattern()
         # font
-        self.font = pygame.font.Font("vacuole.ttf", 24)
+        try:
+            self.font = pygame.font.Font("vacuole.ttf", 24)
+        except IOError:
+            self.font = pygame.font.SysFont("Sans", 24)
         self.textfg = (255, 255, 255)
         self.textbg = (125, 193, 239)
         self.text = self.font.render(self.cellpatternindex, True, self.textfg, self.textbg)
