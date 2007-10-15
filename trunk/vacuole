@@ -98,6 +98,9 @@ class Cells:
             self.cellpatternindex = keys[index]
         else:
             self.cellpatternindex = patterns[0]
+        self.cellpatterntext()
+
+    def cellpatterntext(self):
         self.text = self.font.render(self.cellpatternindex, True, self.textfg, self.textbg)
 
     def prev_cellpattern(self):
@@ -112,7 +115,7 @@ class Cells:
             self.cellpatternindex = keys[index]
         else:
             self.cellpatternindex = patterns[0]
-        self.text = self.font.render(self.cellpatternindex, True, self.textfg, self.textbg)
+        self.cellpatterntext()
 
     def step(self):
         """run a cellpattern on the cells once"""
@@ -266,11 +269,19 @@ class Program:
                         self.cells.draw()
                     elif event.key == K_UP:
                         self.numcells += 1
+                        cpi = self.cells.cellpatternindex
                         self.cells = Cells(self.screen, self.margin, self.margin, self.width - self.margin * 2, self.height - self.margin * 2, self.fg, self.bg, self.numcells, self.numcells, self.borderwidth)
+                        self.cells.cellpatternindex = cpi
+                        self.cells.putpattern()
+                        self.cells.cellpatterntext()
                         self.cells.draw()
                     elif event.key == K_DOWN:
                         self.numcells -= 1
+                        cpi = self.cells.cellpatternindex
                         self.cells = Cells(self.screen, self.margin, self.margin, self.width - self.margin * 2, self.height - self.margin * 2, self.fg, self.bg, self.numcells, self.numcells, self.borderwidth)
+                        self.cells.cellpatternindex = cpi
+                        self.cells.putpattern()
+                        self.cells.cellpatterntext()
                         self.cells.draw()
                     elif event.key == K_LEFT:
                         self.cells.prev_cellpattern()
