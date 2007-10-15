@@ -210,7 +210,7 @@ class Program:
         else:
             self.screen = pygame.display.set_mode((self.width, self.height))
 
-        pygame.display.set_caption("Cellular")
+        pygame.display.set_caption("Vacuole")
         pygame.mouse.set_visible(1)
 
         self.clock = pygame.time.Clock()
