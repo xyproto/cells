@@ -125,9 +125,9 @@ class Cells:
         for nextcol in xrange(cell_line_length):
             # we wish to eximine the three cells that centers around this cells column
             if nextcol == 0:
-                cells = "0" + cell_line[0:2]
+                cells = "0" + cell_line[:2]
             elif nextcol == 1:
-                cells = cell_line[0:3]
+                cells = cell_line[:3]
             elif nextcol == cell_line_length - 2:
                 # we are at the next-to-last cell of the row
                 # we want the cells above to the left, above and above to the right
@@ -188,6 +188,7 @@ class Cells:
             self.step()
 
     def draw(self):
+        self.surface.fill(self.textbg)
         for y in xrange(self.numcells_v):
             for x in xrange(self.numcells_h):
                 cell_left = self.left + int(x * self.cwidth)
@@ -265,12 +266,10 @@ class Program:
                         self.cells.draw()
                     elif event.key == K_UP:
                         self.numcells += 1
-                        self.splash()
                         self.cells = Cells(self.screen, self.margin, self.margin, self.width - self.margin * 2, self.height - self.margin * 2, self.fg, self.bg, self.numcells, self.numcells, self.borderwidth)
                         self.cells.draw()
                     elif event.key == K_DOWN:
                         self.numcells -= 1
-                        self.splash()
                         self.cells = Cells(self.screen, self.margin, self.margin, self.width - self.margin * 2, self.height - self.margin * 2, self.fg, self.bg, self.numcells, self.numcells, self.borderwidth)
                         self.cells.draw()
                     elif event.key == K_LEFT:
