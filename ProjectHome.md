@@ -1,0 +1,1 @@
+A program for experimenting with cell-patterns like those found in "A new kind of science" by Stephen Wolfram
