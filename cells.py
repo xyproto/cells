@@ -57,7 +57,7 @@ class Cells:
         self.putpattern()
         # font
         try:
-            self.font = pygame.font.Font("vacuole.ttf", 24)
+            self.font = pygame.font.Font("cells.ttf", 24)
         except IOError:
             self.font = pygame.font.SysFont("Sans", 24)
         self.textfg = (255, 255, 255)
@@ -244,7 +244,7 @@ class Program:
         if self.splashimage:
             scaled_image = self.splashimage
         else:
-            image = pygame.image.load("vacuole.png")
+            image = pygame.image.load("cells.png")
             scaled_image = pygame.transform.scale(image, (self.width, self.height))
         return self.screen.blit(scaled_image, (0, 0))
 
